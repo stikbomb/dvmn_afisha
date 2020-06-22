@@ -54,7 +54,7 @@ ROOT_URLCONF = 'where_to_go.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'where-to-go-frontend-master')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
