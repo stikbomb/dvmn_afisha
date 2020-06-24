@@ -1,8 +1,7 @@
-import json
-
 from django.shortcuts import render, get_object_or_404
 from places.models import Place, Image
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
+from django.urls import reverse
 
 
 def index(request):
@@ -36,17 +35,18 @@ def make_feature_collection(places):
             "properties": {
                 "title": place.title,
                 "placeId": place.id,
-                "detailsUrl": "zagluwe4ka"
+                "detailsUrl": reverse('place', args=[place.id])
             }
         }
 
         result["features"].append(feature)
 
+    print(result)
+
     return result
 
 
 def make_place_json(place):
-
     result = {
         "title": place.title,
         "imgs": get_place_images(place),
