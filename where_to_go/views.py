@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from places.models import Place
+from django.http import HttpResponse
 
 
 def index(request):
@@ -10,6 +11,12 @@ def index(request):
     data = {'feature_collection': feature_collection}
 
     return render(request, '../templates/index.html', context=data)
+
+
+def place(request, place_id):
+    place = get_object_or_404(Place, id=place_id)
+    response = HttpResponse(place.title)
+    return response
 
 
 def make_feature_collection(places):
