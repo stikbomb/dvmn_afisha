@@ -41,8 +41,6 @@ def make_feature_collection(places):
 
         result["features"].append(feature)
 
-    print(result)
-
     return result
 
 
@@ -57,8 +55,6 @@ def make_place_json(place):
             "lng": place.lon
         }
     }
-
-    print(get_place_images(place))
 
     return JsonResponse(result, safe=False, json_dumps_params={'indent': 4, 'ensure_ascii': False})
 
