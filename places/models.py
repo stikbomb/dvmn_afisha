@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 class Place(models.Model):
@@ -19,4 +20,8 @@ class Image(models.Model):
     position = models.IntegerField('Номер')
 
     def __str__(self):
-        return f"{self.position} {self.place}"      
+        return f"{self.position} {self.place}"
+
+    # @property
+    # def absolute_image_url(self):
+    #     return f"{settings.MEDIA_URL}{self.image.url}"
