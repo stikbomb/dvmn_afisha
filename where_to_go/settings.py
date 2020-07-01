@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'places',
-    'adminsortable2'
+    'adminsortable2',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,13 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = os.getenv('MEDIA_URL', '/media/')
+
+# TinyMCE Settings
+TINYMCE_DEFAULT_CONFIG = {
+    'toolbar_mode': 'wrap',
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'custom_undo_redo_levels': 10,
+    'width': 1200,
+    'height': 500,
+    'menubar': False,
+}
