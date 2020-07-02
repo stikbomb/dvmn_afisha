@@ -9,6 +9,12 @@ from .models import Place, Image
 class ImageAdmin(admin.ModelAdmin):
     ordering = ('place', 'position')
 
+    def get_model_perms(self, request):
+        """
+        Return empty perms dict thus hiding the model from admin index.
+        """
+        return {}
+
 
 class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Image
@@ -25,3 +31,4 @@ class PlaceAdmin(admin.ModelAdmin):
     inlines = [
         ImageInline,
     ]
+    search_fields = ['title']
