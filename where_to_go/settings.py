@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import mimetypes
 
 from dotenv import load_dotenv
 
@@ -142,3 +143,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'height': 500,
     'menubar': False,
 }
+
+# CSS
+
+mimetypes.add_type("text/css", ".css", True)
