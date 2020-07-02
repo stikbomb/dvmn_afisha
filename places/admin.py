@@ -4,7 +4,10 @@ from adminsortable2.admin import SortableInlineAdminMixin
 
 from .models import Place, Image
 
-admin.site.register(Image)
+
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+    ordering = ('place', 'position')
 
 
 class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
